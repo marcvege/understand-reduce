@@ -13,9 +13,9 @@ class ObfuscatorTest {
     private final Obfuscator obfuscator = new Obfuscator();
 
     @DisplayName("Positives cases")
-    @ParameterizedTest(name = "\"{0}\" should be {1}")
+    @ParameterizedTest(name = "\"{0}\" should be {2}")
     @CsvSource({"param1:data1, data1, param1:*****",
-            "param1:data1, param2:data2, param3:data3, data1|data3, param1:*****, param2:data2, param3:*****"})
+            "param1:data1 param2:data2 param3:data3, data1|data3, param1:***** param2:data2 param3:*****"})
     void mask_data(String dataToMask, String packedMasks, String dataExpected) {
         String dataMasked = obfuscator.obfuscate(dataToMask, getMasks(packedMasks));
 
