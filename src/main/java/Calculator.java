@@ -13,7 +13,12 @@ public class Calculator {
                 .orElse(0);
     }
 
-    public int multiply(ArrayList<String> numbers) {
-        throw new UnsupportedOperationException();
+    public int multiply(List<String> numbers) {
+        return numbers.stream()
+                .filter(StringUtils::isNumeric)
+                .filter(StringUtils::isNotEmpty)
+                .map(Integer::parseInt)
+                .reduce((i1, i2) -> i1 * i2)
+                .orElse(0);
     }
 }
