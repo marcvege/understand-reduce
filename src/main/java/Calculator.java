@@ -1,9 +1,9 @@
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
-
 import java.util.List;
 
 public class Calculator {
-    public int sum(List<String> numbers){
-        throw new NotImplementedException();
+    public int sum(List<String> numbers) {
+        if (numbers.isEmpty())
+            return 0;
+        return 0;
     }
 }
