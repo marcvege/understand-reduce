@@ -1,5 +1,6 @@
 import org.apache.commons.lang.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Calculator {
@@ -10,5 +11,9 @@ public class Calculator {
                 .map(Integer::parseInt)
                 .reduce((i1, i2) -> i1 + i2)
                 .orElse(0);
+    }
+
+    public int multiply(ArrayList<String> numbers) {
+        throw new UnsupportedOperationException();
     }
 }
