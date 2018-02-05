@@ -1,7 +1,9 @@
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.CsvSource;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -12,12 +14,23 @@ import static org.junit.jupiter.api.Assertions.*;
 class CalculatorTest {
     private final Calculator calculator = new Calculator();
 
+    @Test
+    void return_0_when_empty_list() {
+        ArrayList<String> emptyList = new ArrayList<>();
+
+        int sum = calculator.sum(emptyList);
+
+        assertThat(sum, is(0));
+    }
+
     @DisplayName("Positives cases")
     @ParameterizedTest(name = "\"{0}\" should be {1}")
     @CsvSource({"1, 1",
             "1|2,3",
+            "1|A|2,3",
+            "1||2,3",
             "10|20|30|40, 100"})
-    void mask_data(String packedNumbers, int expectedResult) {
+    void sum_data(String packedNumbers, int expectedResult) {
         int sum = calculator.sum(getNumbers(packedNumbers));
 
         assertThat(sum, is(expectedResult));
