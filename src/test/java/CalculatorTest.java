@@ -27,6 +27,7 @@ class CalculatorTest {
     @ParameterizedTest(name = "\"{0}\" should be {1}")
     @CsvSource({"1, 1",
             "1|2,3",
+            "A|B,0",
             "1|A|2,3",
             "1||2,3",
             "10|20|30|40, 100"})
